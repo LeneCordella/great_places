@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'dart:io';
 
 import '../models/place.dart';
 
@@ -7,5 +8,17 @@ class GreatPlaces with ChangeNotifier {
 
   List<Place> get items {
     return [..._items];
+  }
+
+  void addPlace(
+    File pickedImage,
+    String pickedTitle,
+  ) {
+    final newPlace = Place(
+      id: DateTime.now().toString(),
+      image: pickedImage,
+      title: pickedTitle,
+      location: null,
+    );
   }
 }
