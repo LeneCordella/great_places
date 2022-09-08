@@ -23,12 +23,17 @@ class _ImageInputState extends State<ImageInput> {
         source: ImageSource.camera,
         maxWidth: 600,
     );
+
+    if (imageFile == null){
+      return;
+    }
+
     setState(() {
       _storedImage = File(imageFile.path);
     });
     final appDir = await syspaths.getApplicationDocumentsDirectory();
     final fileName = path.basename(imageFile.path);
-    final savedImage = await imageFile.copy('${appDir.path}/$fileName');
+    final savedImage = await _storedImage.copy('${appDir.path}/$fileName');
     widget.onSelectImage();
   }
 
@@ -55,10 +60,10 @@ class _ImageInputState extends State<ImageInput> {
           width: 10,
         ),
         Expanded(
-          child: FlatButton.icon(
+          child: TextButton.icon(
             icon: Icon(Icons.camera),
             label: Text("Take a pic"),
-            textColor: Theme.of(context).primaryColor,
+            //textColor: Theme.of(context).primaryColor,
             onPressed: _takePicture,
           ),
         ),
