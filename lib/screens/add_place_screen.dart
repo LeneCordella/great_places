@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:provider/provider.dart';
 
@@ -8,6 +7,7 @@ import '../providers/great_places.dart';
 
 class AddPlaceScreen extends StatefulWidget {
   static const routeName = '/add-place';
+
   @override
   _AddPlaceScreenState createState() => _AddPlaceScreenState();
 }
@@ -17,7 +17,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
   File _pickedImage;
 
   void _selectImage(File pickedImage) {
-    File _pickedImage = pickedImage;
+     _pickedImage = pickedImage;
   }
 
   void _savePlace() {
@@ -25,7 +25,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
       return;
     }
     Provider.of<GreatPlaces>(context, listen: false)
-        .addPlace(_titleController.text as File, _pickedImage.path);
+        .addPlace(_titleController.text, _pickedImage);
     Navigator.of(context).pop();
   }
 
