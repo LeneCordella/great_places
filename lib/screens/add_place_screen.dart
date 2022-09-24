@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../widgets/image_input.dart';
 import '../providers/great_places.dart';
+import '../widgets/location_input.dart';
 
 class AddPlaceScreen extends StatefulWidget {
   static const routeName = '/add-place';
@@ -17,7 +18,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
   File _pickedImage;
 
   void _selectImage(File pickedImage) {
-     _pickedImage = pickedImage;
+    _pickedImage = pickedImage;
   }
 
   void _savePlace() {
@@ -53,15 +54,19 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                       height: 10,
                     ),
                     ImageInput(_selectImage),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    LocationInput(),
                   ],
                 ),
               ),
             ),
           ),
           ElevatedButton.icon(
-           // elevation: 0,
+            // elevation: 0,
 //            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-  //          color: Theme.of(context).accentColor,
+            //          color: Theme.of(context).accentColor,
             icon: Icon(Icons.add),
             label: Text("Add a place"),
             onPressed: _savePlace,
