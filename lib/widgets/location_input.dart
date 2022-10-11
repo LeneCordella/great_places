@@ -26,8 +26,9 @@ class _LocationInputState extends State<LocationInput> {
   Future<void> _selectOnMap() async {
     final selectedLocation = await Navigator.of(context).push(
       MaterialPageRoute(
+        fullscreenDialog: true,
         builder: (ctx) => MapScreen(
-          iSelecting: true,
+          isSelecting: true,
         ),
       ),
     );
