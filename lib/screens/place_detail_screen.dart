@@ -50,7 +50,7 @@ class PlaceDetailScreen extends StatelessWidget {
                   fullscreenDialog: true,
                   builder: (ctx) => MapScreen(
                     initialLocation: selectedPlace.location,
-                    //isSelecting: false,
+                    isSelecting: false,
                   ),
                 ),
               );
